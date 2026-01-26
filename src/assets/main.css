@@ -231,20 +231,22 @@ header {
 }
 
 .social-link {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
-  width: clamp(45px, 8vw, 60px);
-  height: clamp(45px, 8vw, 60px);
+
+  width: clamp(32px, 8vw, 40px);
+  height: clamp(32px, 8vw, 40px);
+
   border: var(--doodle-border);
   border-radius: var(--doodle-radius);
   background-color: var(--card-bg);
   color: var(--text-color);
-  font-size: clamp(1rem, 2vw, 1.5rem);
   text-decoration: none;
   box-shadow: var(--doodle-shadow);
   transition: all var(--transition-speed);
   flex-shrink: 0;
+
 }
 
 .social-link:hover {
@@ -497,7 +499,7 @@ footer {
 /* Mobile-first breakpoints */
 @media (max-width: 480px) {
   .header-content {
-    flex-direction: column;
+    
     text-align: center;
   }
   
@@ -559,13 +561,13 @@ footer {
   .portfolio-card,
   .skill-item,
   .social-link {
-    min-height: 44px;
-    min-width: 44px;
+    min-height: 20px;
+    min-width: 20px;
   }
   
   .social-link {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
   }
 }
 

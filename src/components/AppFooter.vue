@@ -1,7 +1,7 @@
 <template>
   <footer>
     <p>
-      © {{ year }} DoodleFolio.
+      © {{ year }} CaptainFulminyx.
       All rights reserved. Handcrafted with creativity.
     </p>
   </footer>

@@ -5,31 +5,35 @@
       <div class="hero-image">
         <div class="doodle-avatar floating">
           <img src="@/assets/img.jpg" />
-        </div>
       </div>
     </div>
+  </div>
 
-    <div class="hero-content" id="social">
-      <p>{{ bio }}</p>
-      <div class="social-links">
-        <a
-          v-for="link in socialLinks"
-          :key="link.id"
-          :href="link.url"
-          target="_blank"
-          class="social-link"
+  <div class="hero-content" id="social">
+    <p>
+      {{ bio }}
+    </p>
+    <div class="social-links">
+      <a
+        v-for="link in socialLinks"
+        :key="link.id"
+        :href="link.url"
+        target="_blank"
+        class="social-link"
         >
-          <i :class="link.icon"></i>
-        </a>
-      </div>
+        <Icon :icon="link.icon"
+    width="40px" />
+      </a>
     </div>
-  </section>
+  </div>
+</section>
 </template>
 
 <script setup>
-defineProps({
-  name: String,
-  bio: String,
-  socialLinks: Array
+import {Icon} from '@iconify/vue'
+defineProps( {
+name: String,
+bio: String,
+socialLinks: Array
 })
 </script>
