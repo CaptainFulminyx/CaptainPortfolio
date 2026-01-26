@@ -498,7 +498,6 @@ footer {
 
 @media (max-width: 480px) {
   .header-content {
-    flex-direction: column;
     text-align: center;
   }
   
