@@ -7,7 +7,6 @@
 }
 
 .doodle-portfolio {
-  /* Light Mode Default Colors */
   --bg-color: #f9f9f9;
   --text-color: #333333;
   --primary-color: #6c63ff;
@@ -17,12 +16,12 @@
   --border-color: #333333;
   --shadow-color: rgba(0, 0, 0, 0.1);
 
-  /* Doodle border style */
+  
   --doodle-border: clamp(2px, 0.3vw, 3px) solid var(--border-color);
   --doodle-radius: clamp(15px, 2vw, 20px) clamp(5px, 1vw, 5px) clamp(15px, 2vw, 20px) clamp(5px, 1vw, 5px);
   --doodle-shadow: clamp(4px, 0.8vw, 8px) clamp(4px, 0.8vw, 8px) 0px var(--shadow-color);
 
-  /* Responsive spacing */
+  
   --space-xs: clamp(0.25rem, 0.5vw, 0.5rem);
   --space-sm: clamp(0.5rem, 1vw, 1rem);
   --space-md: clamp(1rem, 2vw, 1.5rem);
@@ -30,7 +29,7 @@
   --space-xl: clamp(2rem, 4vw, 3.5rem);
   --space-2xl: clamp(3rem, 6vw, 5rem);
 
-  /* Transition */
+  
   --transition-speed: 0.4s;
 
   font-family: 'Poppins', sans-serif;
@@ -44,7 +43,7 @@
 }
 
 .doodle-portfolio.dark-mode {
-  /* Dark Mode Colors */
+  
   --bg-color: #121212;
   --text-color: #f0f0f0;
   --primary-color: #8a84ff;
@@ -77,7 +76,7 @@
   padding: 0 clamp(1rem, 4vw, 2rem);
 }
 
-/* Header Styles */
+
 header {
   padding: var(--space-lg) 0;
   border-bottom: var(--doodle-border);
@@ -115,7 +114,7 @@ header {
   border-radius: 2px;
 }
 
-/* Theme Toggle */
+
 .theme-toggle {
   background: transparent;
   border: var(--doodle-border);
@@ -147,7 +146,7 @@ header {
   font-size: clamp(1rem, 1.5vw, 1.2rem);
 }
 
-/* Hero Section */
+
 .hero {
   display: flex;
   align-items: center;
@@ -280,7 +279,7 @@ header {
   }
 }
 
-/* Portfolio Sections */
+
 .section-title {
   font-size: clamp(1.75rem, 4vw, 2.5rem);
   margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
@@ -367,7 +366,7 @@ header {
   line-height: 1.5;
 }
 
-/* Skills Section */
+
 .skills-container {
   display: flex;
   flex-wrap: wrap;
@@ -417,7 +416,7 @@ header {
   opacity: 1;
 }
 
-/* Contact Section */
+
 .contact-section {
   padding: clamp(1.5rem, 4vw, 3rem);
   border: var(--doodle-border);
@@ -471,7 +470,7 @@ header {
   background-color: var(--secondary-color);
 }
 
-/* Footer */
+
 footer {
   padding: var(--space-lg) 0;
   text-align: center;
@@ -482,7 +481,7 @@ footer {
   opacity: 0.8;
 }
 
-/* Animations */
+
 @keyframes float {
   0%, 100% { 
     transform: translateY(0); 
@@ -496,10 +495,10 @@ footer {
   animation: float 5s ease-in-out infinite;
 }
 
-/* Mobile-first breakpoints */
+
 @media (max-width: 480px) {
   .header-content {
-    
+    flex-direction: column;
     text-align: center;
   }
   
@@ -554,7 +553,7 @@ footer {
   }
 }
 
-/* Improved touch targets for mobile */
+
 @media (hover: none) and (pointer: coarse) {
   .theme-toggle,
   .cta-button,
@@ -571,7 +570,7 @@ footer {
   }
 }
 
-/* Prevent horizontal overflow */
+
 html, body {
   max-width: 100%;
   overflow-x: hidden;
