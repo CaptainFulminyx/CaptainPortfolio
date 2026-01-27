@@ -83,7 +83,7 @@
       title: 'Personal Portfolio',
       description: 'A handcrafted personal portfolio designed to reflect creativity through a doodle-inspired visual language and thoughtful interactions.',
       img: portfolioimg,
-      link: 'https://CaptainFulminyx.netlify.com' 
+      link: 'https://captainfulminyx.netlify.com'
     }]
 
   const skills = [
