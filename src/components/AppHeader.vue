@@ -1,40 +1,49 @@
 <template>
-<header class="header">
-  <div class="logo">
-    CaptainFulminyx
-  </div>
+  <header class="header">
+    <div class="logo">
+      CaptainFulminyx
+    </div>
 
-  <div class="header-actions">
-    <button class="menu-toggle" @click="$emit('openMenu')">
-      <Icon
-        :icon="isOpen ? 'material-symbols:close-rounded' : 'material-symbols:menu-rounded'"
-        width="30px"
-        height="30px"
-      />
-    </button>
-  </div>
-
-  <Transition name="menu">
-    <div v-if="isOpen" class="nav-content">
-      <div class="nav-link">Work</div>
-      <div class="nav-link">Favourites</div>
-
-      <button class="theme-toggle" @click="$emit('toggleTheme')">
+    <div class="header-actions">
+      <button class="menu-toggle" @click="$emit('openMenu')">
         <Icon
-          :icon="isDarkMode ? 'solar:sun-bold' : 'solar:moon-bold'"
+          :icon="isOpen ? 'material-symbols:close-rounded': 'material-symbols:menu-rounded'"
           width="30px"
           height="30px"
-        />
+          />
       </button>
     </div>
-  </Transition>
-</header>
+
+    <Transition name="menu">
+      <div v-if="isOpen" class="nav-content">
+        <RouterLink class="a" to="/work">
+          <div class="nav-link">
+            Work
+          </div>
+        </RouterLink>
+        <div class="nav-link">
+          Favourites
+        </div>
+
+        <button class="theme-toggle" @click="$emit('toggleTheme')">
+          <Icon
+            :icon="isDarkMode ? 'solar:sun-bold': 'solar:moon-bold'"
+            width="30px"
+            height="30px"
+            />
+        </button>
+      </div>
+    </Transition>
+  </header>
 </template>
 
 <script setup>
   import {
     Icon
   } from '@iconify/vue'
+  import {
+    RouterLink
+  } from 'vue-router'
   defineProps( {
     isDarkMode: Boolean,
     isOpen: Boolean,

@@ -1,5 +1,5 @@
 <template>
-  <div :class="['doodle-portfolio', { 'dark-mode': isDarkMode }]">
+  <div class="doodle-portfolio">
     <DoodleBackground :isDarkMode="isDarkMode" />
 
     <div class="container">
@@ -50,7 +50,11 @@
   const isOpen = ref(false)
 
   const toggleTheme = () => {
-    isDarkMode.value = !isDarkMode.value
+     const body = document.body;
+  body.setAttribute(
+    'data-theme',
+    body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'
+  );
     localStorage.setItem('portfolio-theme', isDarkMode.value ? 'dark': 'light')
   }
   const openMenu = () => {
