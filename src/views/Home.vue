@@ -1,14 +1,16 @@
 <template>
+
   <div :class="['doodle-portfolio', { 'dark-mode': isDarkMode }]">
     <DoodleBackground :isDarkMode="isDarkMode" />
 
     <div class="container">
-      <AppHeader
+          <AppHeader
         :isDarkMode="isDarkMode"
         :isOpen="isOpen"
         @toggleTheme="toggleTheme"
         @openMenu="toggleMenu"
         />
+
 
       <HeroSection
         :name="name"
@@ -34,8 +36,8 @@
     computed,
     onMounted
   } from 'vue'
-
-  import AppHeader from '@/components/AppHeader.vue'
+import AppHeader from '@/components/AppHeader.vue'
+  
   import HeroSection from '@/components/HeroSection.vue'
   import PortfolioSection from '@/components/PortfolioSection.vue'
   import SkillsSection from '@/components/SkillsSection.vue'

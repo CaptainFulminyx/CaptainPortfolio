@@ -16,12 +16,12 @@
 
     <Transition name="menu">
       <div v-if="isOpen" class="nav-content">
-        <div class="nav-link">
-          Work
-        </div>
-        <div class="nav-link">
-          Favourites
-        </div>
+        <RouterLink to="/fav">
+
+          <div class="nav-link">
+            Favourites
+          </div>
+        </RouterLink>
 
         <button class="theme-toggle" @click="$emit('toggleTheme')">
           <Icon
@@ -34,17 +34,28 @@
     </Transition>
   </header>
 </template>
-
 <script setup>
-  import {
-    Icon
-  } from '@iconify/vue'
-  defineProps( {
-    isDarkMode: Boolean,
-    isOpen: Boolean,
-  })
-  defineEmits(['toggleTheme', 'openMenu'])
+import { Icon } from '@iconify/vue'
+import { RouterLink, useRoute } from 'vue-router'
+import { watch } from 'vue'
+
+const props = defineProps({
+  isDarkMode: Boolean,
+  isOpen: Boolean,
+})
+
+const emit = defineEmits(['toggleTheme', 'openMenu'])
+
+const route = useRoute()
+
+watch(
+  () => route.fullPath,
+  () => {
+    if (props.isOpen) emit('openMenu')
+  }
+)
 </script>
+
 
 <style scoped>
   .menu-enter-active,

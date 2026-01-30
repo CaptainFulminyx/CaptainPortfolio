@@ -6,15 +6,6 @@
     -webkit-tap-highlight-color: transparent;
 }
 
-/* ================= DESIGN TOKENS ================= */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-    -webkit-tap-highlight-color: transparent;
-}
-
 .doodle-portfolio {
     --bg-color: #f9f9f9;
     --text-color: #333333;
