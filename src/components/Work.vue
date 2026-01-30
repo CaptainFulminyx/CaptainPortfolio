@@ -33,7 +33,7 @@
       <div class="github-languages-box">
         <h3>Languages</h3>
         <ApexChart
-          type="donut"
+          type="pie"
           :options="githubLanguageOptions"
           :series="githubLanguageSeries"
           />
@@ -80,7 +80,7 @@
         </p>
         <div class="leetcode-graphbox">
           <ApexChart
-            type="donut"
+            type="pie"
             :options="leetcodeChartOptions"
             :series="leetcodeChartSeries"
             />
@@ -163,8 +163,14 @@
 
       github.value.repos = filtered.slice(0,
         4);
-      githubLanguageOptions.value.labels = Object.keys(languageCount);
-      githubLanguageSeries.value = Object.values(languageCount);
+      githubLanguageOptions.value = {
+  labels: Object.keys(languageCount),
+  legend: {
+    show: true
+  }
+}
+
+githubLanguageSeries.value = Object.values(languageCount)
     } catch (error) {
       console.error("Failed to load GitHub data:",
         error);

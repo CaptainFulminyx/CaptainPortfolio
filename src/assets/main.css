@@ -736,13 +736,14 @@ footer {
     aspect-ratio: 1/1;
     grid-area: lang;
     max-width: 400px;
-    padding: var(--space-md);
+    padding: var(--space-xl);
     border: var(--doodle-border);
     border-radius: var(--doodle-radius);
     background-color: var(--bg-color);
     box-shadow: var(--doodle-shadow);
     align-self: center;
     justify-self: center ;
+    overflow: scroll;
 }
 
 /* ================= ARTICLES / BLOG ================= */
@@ -830,6 +831,7 @@ footer {
     max-height: 400px;
     grid-area: graph;
     width: 100%;
+    overflow: scroll;
 }
 
 .leetcode-graphbox > * {
