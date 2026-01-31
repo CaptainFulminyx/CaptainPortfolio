@@ -16,12 +16,16 @@
 
     <Transition name="menu">
       <div v-if="isOpen" class="nav-content">
-        <RouterLink to="/fav">
 
-          <div class="nav-link">
-            Favourites
-          </div>
-        </RouterLink>
+
+        <button class="nav-link" @click="$emit('openFav')">
+          <Icon
+            icon="ic:round-favorite"
+            width="30px"
+            height="30px"
+            /> Favourites
+        </button>
+
 
         <button class="theme-toggle" @click="$emit('toggleTheme')">
           <Icon
@@ -35,25 +39,18 @@
   </header>
 </template>
 <script setup>
-import { Icon } from '@iconify/vue'
-import { RouterLink, useRoute } from 'vue-router'
-import { watch } from 'vue'
+  import {
+    Icon
+  } from '@iconify/vue'
 
-const props = defineProps({
-  isDarkMode: Boolean,
-  isOpen: Boolean,
-})
+  const props = defineProps( {
+    isDarkMode: Boolean,
+    isOpen: Boolean,
+    isClicked: Boolean
+  })
 
-const emit = defineEmits(['toggleTheme', 'openMenu'])
+  const emit = defineEmits(['toggleTheme', 'openMenu', 'openFav'])
 
-const route = useRoute()
-
-watch(
-  () => route.fullPath,
-  () => {
-    if (props.isOpen) emit('openMenu')
-  }
-)
 </script>
 
 

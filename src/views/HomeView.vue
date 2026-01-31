@@ -2,13 +2,16 @@
 
   <div :class="['doodle-portfolio', { 'dark-mode': isDarkMode }]">
     <DoodleBackground :isDarkMode="isDarkMode" />
-
     <div class="container">
-          <AppHeader
+      <FavPage v-if="isFav"
+        @closeFav = "closeFav" />
+
+      <AppHeader
         :isDarkMode="isDarkMode"
         :isOpen="isOpen"
         @toggleTheme="toggleTheme"
         @openMenu="toggleMenu"
+        @openFav = "openFav"
         />
 
 
@@ -36,8 +39,8 @@
     computed,
     onMounted
   } from 'vue'
-import AppHeader from '@/components/AppHeader.vue'
-  
+  import AppHeader from '@/components/AppHeader.vue'
+
   import HeroSection from '@/components/HeroSection.vue'
   import PortfolioSection from '@/components/PortfolioSection.vue'
   import SkillsSection from '@/components/SkillsSection.vue'
@@ -46,12 +49,14 @@ import AppHeader from '@/components/AppHeader.vue'
   import Work from '@/components/Work.vue'
   import DoodleBackground from '@/components/DoodleBackground.vue'
 
+  import FavPage from '@/views/AboutView.vue'
   import acodepluginimg from '@/assets/acodeplugin.avif'
   import springgame from '@/assets/gardengame.avif'
   import portfolioimg from '@/assets/portfolio.avif'
 
   const isDarkMode = ref(false)
   const isOpen = ref(false)
+  const isFav = ref(false)
 
   const toggleTheme = () => {
     isDarkMode.value = !isDarkMode.value
@@ -60,6 +65,12 @@ import AppHeader from '@/components/AppHeader.vue'
   const toggleMenu = () => {
     isOpen.value = !isOpen.value
 
+  }
+  const openFav = () => {
+    isFav.value = true
+  }
+  const closeFav = () => {
+    isFav.value = false
   }
 
   onMounted(() => {
