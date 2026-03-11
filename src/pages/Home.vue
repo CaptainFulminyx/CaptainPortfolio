@@ -30,18 +30,9 @@
 
       <div class="hero-image">
         <div class="doodle-avatar floating">
-          <span class="avatar-initials">{{ initials }}</span>
+          <img class="avatar-initials" src="../assets/me.jpg"  width="100%" height="100%" style="object-fit:cover;"/>
         </div>
-        <div class="stats-row" style="margin-top: 1rem;">
-          <div class="stat-card">
-            <span class="stat-value">{{ data.projects.length }}+</span>
-            <span class="stat-label">Projects</span>
-          </div>
-          <div class="stat-card">
-            <span class="stat-value">2+</span>
-            <span class="stat-label">Years Exp.</span>
-          </div>
-        </div>
+
       </div>
     </section>
 

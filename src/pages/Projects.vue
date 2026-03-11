@@ -1,5 +1,5 @@
 <template>
-  <div class="container" style="padding-top: 2rem; padding-bottom: 4rem;">
+  <div class="container" style="padding-top: 6rem; padding-bottom: 4rem;">
     <h2 class="section-title">My Projects</h2>
 
     <div class="portfolio-grid">

@@ -1,5 +1,5 @@
 <template>
-  <div class="container" style="padding-top: 2rem; padding-bottom: 4rem;">
+  <div class="container" style="padding-top: 6rem; padding-bottom: 4rem;">
     <h2 class="section-title">Skills & Tools</h2>
 
     <!-- Pill cloud -->
@@ -15,7 +15,7 @@
           v-for="s in data.skills.languages"
           :key="s.name"
           :name="s.name"
-          :level="s.level"
+          
         />
       </div>
 
@@ -26,7 +26,7 @@
           v-for="s in data.skills.frontend"
           :key="s.name"
           :name="s.name"
-          :level="s.level"
+          
         />
       </div>
 
@@ -36,7 +36,7 @@
           v-for="s in data.skills.backend"
           :key="s.name"
           :name="s.name"
-          :level="s.level"
+          
         />
       </div>
 
@@ -46,7 +46,7 @@
           v-for="s in data.skills.tools"
           :key="s.name"
           :name="s.name"
-          :level="s.level"
+          
         />
       </div>
     </div>

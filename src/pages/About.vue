@@ -1,12 +1,12 @@
 <template>
-  <div class="container" style="padding-top: 2rem; padding-bottom: 4rem;">
+  <div class="container" style="padding-top: 6rem; padding-bottom: 4rem;">
     <h2 class="section-title">About Me</h2>
 
     <!-- Top: Avatar + Bio -->
     <div class="about-top">
       <div class="about-avatar-col">
         <div class="doodle-avatar floating" style="max-width: 260px;">
-          <span class="avatar-initials">{{ initials }}</span>
+        <img class="avatar-initials" src="../assets/me.jpg"  width="100%" height="100%" style="object-fit:cover;"/>
         </div>
         <div class="stats-row" style="margin-top: 1rem; max-width: 260px; margin-left: auto; margin-right: auto;">
           <div class="stat-card">
@@ -14,7 +14,7 @@
             <span class="stat-label">Projects</span>
           </div>
           <div class="stat-card">
-            <span class="stat-value">2+</span>
+            <span class="stat-value">4+</span>
             <span class="stat-label">Years</span>
           </div>
         </div>
