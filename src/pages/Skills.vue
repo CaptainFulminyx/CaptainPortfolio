@@ -61,7 +61,7 @@ import { portfolioData as data } from '../data/portfolio'
 import SkillBar from '../components/SkillBar.vue'
   
   // @ts-ignore
-import useGitHubContributions from '../composables/useGitHubContributions.js'
+import {useGitHubContributions} from '../composables/useGitHubContributions.js'
 // @ts-ignore
 import ContributionHeatmap from '../components/ContributionHeatmap.vue'
   const token = import.meta.env.VITE_GITHUB_TOKEN;
