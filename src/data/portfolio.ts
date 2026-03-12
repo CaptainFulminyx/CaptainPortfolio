@@ -97,6 +97,12 @@ export const portfolioData = {
      },
     {link: "https://www.kaggle.com/captainfulminyx",
      icon: "cib:kaggle"},
+    {link: "https://dev.to/captainfulminyx",
+     icon: "material-symbols:logo-dev-outline"},
+    {link: "https://www.medium.com/@CaptainFulminyx",
+     icon: "basil:medium-outline"},
+    {link: "https://substack.com/@captainfulminyx",
+     icon: "mingcute:substack-line"}
 
   ]
 }
