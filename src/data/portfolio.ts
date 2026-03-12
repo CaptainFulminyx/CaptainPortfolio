@@ -80,5 +80,23 @@ export const portfolioData = {
       { name: "Supabase" },
       { name: "Linux"}
     ]
-  }
+  },
+  socials: [
+    {link: "mailto: captainfulminyx@gmail.com",
+     icon: "material-symbols:mail-outline-rounded"},
+    {link: "https://github.com/CaptainFulminyx",
+     icon: "mdi:github"},
+    {link: "https://twitter.com/captainfulminyx",
+     icon: "ri:twitter-x-line"},
+    {link: "https://github.com/CaptainFulminyx",
+     icon: "simple-icons:sololearn"},
+    {link: "https://www.instagram.com/captainfulminyx",
+     icon: "mdi:instagram"},
+    {link: "https://t.me/captainfulminyx",
+     icon: "mdi:telegram"
+     },
+    {link: "https://www.kaggle.com/captainfulminyx",
+     icon: "cib:kaggle"},
+
+  ]
 }

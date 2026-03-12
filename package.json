@@ -8,6 +8,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@iconify/vue": "^5.0.0",
     "@vueuse/core": "^10.9.0",
     "@vueuse/motion": "^2.2.0",
     "vue": "^3.4.0",

@@ -20,7 +20,7 @@
 
         <div class="hero-cta">
           <router-link to="/projects" class="doodle-btn doodle-btn-primary">
-            View My Work →
+            View My Work 
           </router-link>
           <router-link to="/contact" class="doodle-btn">
             Get In Touch
@@ -52,17 +52,18 @@
           </div>
           <div class="card-links">
             <a v-if="project.github" :href="project.github" target="_blank" class="doodle-btn" style="font-size:0.78rem; padding: 5px 12px;">
-              GitHub
+                <Icon icon="mdi:github" width="24" height="24" />
+            Code
             </a>
             <a v-if="project.live" :href="project.live" target="_blank" class="doodle-btn doodle-btn-primary" style="font-size:0.78rem; padding: 5px 12px;">
-              Live →
+  Live   <Icon icon="majesticons:open" width="24" height="24" />
             </a>
           </div>
         </div>
       </div>
       <div style="text-align:center;">
         <router-link to="/projects" class="doodle-btn doodle-btn-primary">
-          View All Projects →
+          View All Projects         <Icon icon="mingcute:right-fill" width="24" height="24" />
         </router-link>
       </div>
     </section>
@@ -85,6 +86,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { portfolioData as data } from '../data/portfolio'
+    import { Icon } from '@iconify/vue'
 
 const initials = computed(() =>
   data.name.split(' ').map((n: string) => n[0]).join('')

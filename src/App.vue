@@ -1,5 +1,5 @@
 <template>
-  <div :class="{ 'dark-mode': isDark }">
+  <div id="main" :class="{ 'dark-mode': isDark }">
     <Navbar :is-dark="isDark" @toggle-dark="isDark = !isDark" />
     <main>
       <router-view v-slot="{ Component }">

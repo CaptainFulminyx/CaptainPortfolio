@@ -40,9 +40,7 @@
             </div>
           </div>
 
-          <div class="personality-tags">
-            <span v-for="tag in personalityTags" :key="tag" class="personality-tag">{{ tag }}</span>
-          </div>
+          
         </div>
       </div>
     </div>
@@ -51,9 +49,7 @@
     <div class="timeline-grid">
       <div class="timeline-section">
         <h2>
-          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="color: var(--primary-color);">
-            <path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/>
-          </svg>
+        <Icon icon="boxicons:education" width="24" height="24" />
           Education
         </h2>
         <div class="timeline-items">
@@ -68,9 +64,7 @@
 
       <div class="timeline-section">
         <h2>
-          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="color: var(--secondary-color);">
-            <rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/>
-          </svg>
+          <Icon icon="material-symbols:work-outline" width="24" height="24" />
           Experience
         </h2>
         <div class="timeline-items">
@@ -90,13 +84,11 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { portfolioData as data } from '../data/portfolio'
+    import { Icon } from '@iconify/vue'
 
 const initials = computed(() =>
   data.name.split(' ').map((n: string) => n[0]).join('')
 )
 
-const personalityTags = [
-  'Problem Solver', 'Team Player', 'Quick Learner',
-  'Open Source', 'UI/UX Focused', 'Detail Oriented'
-]
+
 </script>

@@ -21,30 +21,23 @@
         <div class="header-actions">
           <!-- Dark mode toggle -->
           <button class="doodle-btn" @click="$emit('toggleDark')" :title="isDark ? 'Light mode' : 'Dark mode'">
-            <svg v-if="isDark" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="12" cy="12" r="5"/>
-              <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
-              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-              <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
-            </svg>
-            <svg v-else width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
-            </svg>
+            <Icon icon="solar:sun-bold" v-if="isDark" width="24" height="24"/>
+            <Icon icon="solar:moon-bold" v-else width="24" height="24" />
+
           </button>
 
           <!-- Hamburger (mobile only) -->
           <button class="doodle-btn hamburger" @click="menuOpen = !menuOpen" aria-label="Toggle menu">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <template v-if="!menuOpen">
-                <line x1="3" y1="6"  x2="21" y2="6"/>
-                <line x1="3" y1="12" x2="21" y2="12"/>
-                <line x1="3" y1="18" x2="21" y2="18"/>
-              </template>
-              <template v-else>
-                <line x1="18" y1="6"  x2="6" y2="18"/>
-                <line x1="6"  y1="6"  x2="18" y2="18"/>
-              </template>
-            </svg>
+            <template v-if="!menuOpen">
+              
+ <Icon icon="material-symbols:menu-rounded"  width="24" height= "24"/>
+            </template>
+            <template v-else>
+            <Icon icon="material-symbols:close-rounded" width="24" height="24" />
+              
+ 
+            </template>
+
           </button>
         </div>
 
@@ -52,7 +45,7 @@
     </div>
   </nav>
 
-  <!-- Floating mobile nav — teleported to <body>, outside sticky bar -->
+  <!-- Floating mobile nav — telep orted to <body>, outside sticky bar -->
   <MobileNav
     :open="menuOpen"
     :current-path="$route.path"
@@ -64,6 +57,7 @@
 import { ref, computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { portfolioData } from '../data/portfolio'
+  import { Icon } from '@iconify/vue'
 import MobileNav from './MobileNav.vue'
 
 defineProps<{ isDark: boolean }>()
