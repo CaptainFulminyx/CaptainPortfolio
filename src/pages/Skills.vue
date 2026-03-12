@@ -59,9 +59,7 @@
 import { computed } from 'vue'
 import { portfolioData as data } from '../data/portfolio'
 import SkillBar from '../components/SkillBar.vue'
-  import { ref, reactive } from 'vue'
-import { Icon } from '@iconify/vue'
-
+  
   import { useGitHubContributions } from '../composables/useGitHubContributions.js'
 import ContributionHeatmap from '../components/ContributionHeatmap.vue'
 

@@ -33,7 +33,9 @@
 </template>
 
 <script setup lang="ts">
-
+import { ref, reactive } from 'vue'
+import { Icon } from '@iconify/vue'
+  
   
 
 const form = reactive({ name: '', email: '', subject: '', message: '' })
