@@ -1,5 +1,7 @@
 <template>
   <div class="container" style="padding-top: 6rem; padding-bottom: 4rem;">
+
+     <ContributionHeatmap :data="info" />
     <h2 class="section-title">Skills & Tools</h2>
 
     <!-- Pill cloud -->
@@ -57,6 +59,14 @@
 import { computed } from 'vue'
 import { portfolioData as data } from '../data/portfolio'
 import SkillBar from '../components/SkillBar.vue'
+  import { ref, reactive } from 'vue'
+import { Icon } from '@iconify/vue'
+
+  import { useGitHubContributions } from '../composables/useGitHubContributions.js'
+import ContributionHeatmap from '../components/ContributionHeatmap.vue'
+
+  const token = import.meta.env.VITE_GITHUB_TOKEN;
+  const { info, loading } = useGitHubContributions('CaptainFulminyx', token);
 
 const allSkills = computed(() => [
   ...data.skills.languages.map(s => s.name),
