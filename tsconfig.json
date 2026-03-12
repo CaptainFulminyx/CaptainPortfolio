@@ -11,6 +11,7 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "preserve",
+       "types": ["vite/client"],
     "strict": true,
     "noUnusedLocals": false,
     "noUnusedParameters": false,
@@ -18,4 +19,5 @@
   },
   "include": ["src/**/*.ts", "src/**/*.vue"],
   "references": [{ "path": "./tsconfig.node.json" }]
+  
 }

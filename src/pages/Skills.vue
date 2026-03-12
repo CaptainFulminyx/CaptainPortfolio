@@ -60,9 +60,10 @@ import { computed } from 'vue'
 import { portfolioData as data } from '../data/portfolio'
 import SkillBar from '../components/SkillBar.vue'
   
-  import { useGitHubContributions } from '../composables/useGitHubContributions.js'
+  // @ts-ignore
+import useGitHubContributions from '../composables/useGitHubContributions.js'
+// @ts-ignore
 import ContributionHeatmap from '../components/ContributionHeatmap.vue'
-
   const token = import.meta.env.VITE_GITHUB_TOKEN;
   const { info, loading } = useGitHubContributions('CaptainFulminyx', token);
 

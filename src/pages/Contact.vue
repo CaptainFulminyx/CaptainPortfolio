@@ -35,7 +35,7 @@
 <script setup lang="ts">
 import { ref, reactive } from 'vue'
 import { Icon } from '@iconify/vue'
-  
+  import { portfolioData as data } from '../data/portfolio'
   
 
 const form = reactive({ name: '', email: '', subject: '', message: '' })
