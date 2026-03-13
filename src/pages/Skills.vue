@@ -2,6 +2,19 @@
   <div class="container" style="padding-top: 6rem; padding-bottom: 4rem;">
 
      <ContributionHeatmap :data="info" />
+
+            <div class="stats-row" style="margin-top: 1rem; max-width: 100%; margin-left: auto; margin-right: auto;">
+          <div class="stat-card">
+            <span class="stat-value">4+</span>
+<span class="stat-label"> Articles</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-value">3+</span>
+            <span class="stat-label"> Blog posts</span>
+          </div>
+        </div>
+
+    
     <h2 class="section-title">Skills & Tools</h2>
 
     <!-- Pill cloud -->
