@@ -1002,7 +1002,7 @@ html, body {
   height: 13px;
   border-radius: 3px;
   background: transparent;
-  border:1px solid var(--border-color);
+  border:1px solid #222;
   transition: transform 0.12s ease, box-shadow 0.12s ease;
   animation: popIn 0.35s ease both;
   animation-delay: var(--delay, 0ms);
