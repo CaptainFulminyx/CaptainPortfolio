@@ -1,6 +1,6 @@
 # 🚀 Vue 3 Portfolio
 
-A modern, glassmorphism-design portfolio built with **Vue 3 + TypeScript + Vite + Tailwind CSS**.
+A modern, minimal-design portfolio built with **Vue 3 + TypeScript + Vite + Tailwind CSS**.
 
 Converted from React/TSX to Vue 3 Composition API.
 
