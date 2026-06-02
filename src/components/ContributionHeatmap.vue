@@ -116,7 +116,7 @@ const grid = computed(() => {
   const today = new Date()
   const startDate = addDays(today, -(props.totalWeeks * 7 - 1))
   // Snap to the nearest past Sunday so the grid aligns columns cleanly
-  const snapStart = addDays(startDate, -startDate.getDay())
+ // const snapStart = addDays(startDate, -startDate.getDay())
 
   const result = []
   let current = new Date(snapStart)
