@@ -115,13 +115,18 @@ const grid = computed(() => {
 
   const today = new Date()
   const startDate = addDays(today, -(props.totalWeeks * 7 - 1))
-  // Snap to the nearest past Sunday so the grid aligns columns cleanly
- // const snapStart = addDays(startDate, -startDate.getDay())
+
+  // Snap back to Sunday for alignment
+  const snapStart = addDays(startDate, -startDate.getDay())
+
+  // Calculate how many weeks we actually need to cover snapStart → today
+  const daySpan = Math.ceil((today - snapStart) / (1000 * 60 * 60 * 24)) + 1
+  const weeksNeeded = Math.ceil(daySpan / 7)
 
   const result = []
   let current = new Date(snapStart)
 
-  for (let w = 0; w < props.totalWeeks; w++) {
+  for (let w = 0; w < weeksNeeded; w++) {
     const week = []
     for (let d = 0; d < 7; d++) {
       const inRange = current >= startDate && current <= today
@@ -131,9 +136,9 @@ const grid = computed(() => {
     }
     result.push(week)
   }
+
   return result
 })
-
 // ─── Month labels ─────────────────────────────────────────────────────────────
 const monthLabels = computed(() => {
   const labels = []
