@@ -2,7 +2,9 @@
   <div class="heatmap-wrapper">
     <!-- Header -->
     <div class="heatmap-header">
-      <span class="heatmap-title">{{ totalContributions }} contributions in the last year</span>
+      <span class="heatmap-title"
+        >{{ totalContributions }} contributions in the last year</span
+      >
       <div class="heatmap-legend">
         <span class="legend-label">Less</span>
         <div
@@ -45,7 +47,15 @@
                 :key="di"
                 class="heatmap-cell"
                 :class="{ empty: !day, active: day && day.count > 0 }"
-                :style="day ? { background: getCellColor(day.count), '--delay': `${(wi * 7 + di) * 3}ms` } : {}"
+                :style="
+                  day
+                    ? {
+                        background: getCellColor(day.count),
+                        border: '1px solid #343434',
+                        '--delay': `${(wi * 7 + di) * 3}ms`,
+                      }
+                    : { border: '1px solid transparent' }
+                "
                 @mouseenter="day && showTooltip($event, day)"
                 @mouseleave="hideTooltip"
               />
@@ -70,7 +80,7 @@
 </template>
 
 <script setup>
-import { computed, reactive } from 'vue'
+import { computed, reactive } from "vue";
 
 // ─── Props ────────────────────────────────────────────────────────────────────
 const props = defineProps({
@@ -83,11 +93,11 @@ const props = defineProps({
   colorScale: {
     type: Array,
     default: () => [
-      'rgba(255,255,255,0.05)', // 0 contributions
-      '#0e4429',
-      '#006d32',
-      '#26a641',
-      '#39d353',               // max contributions
+      "rgba(0,0,0,0.0)", // 0 contributions
+      "#0e4429",
+      "#006d32",
+      "#26a641",
+      "#39d353", // max contributions
     ],
   },
   // Total weeks to render (~53 = 1 year)
@@ -95,102 +105,115 @@ const props = defineProps({
     type: Number,
     default: 53,
   },
-})
+});
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 function toYMD(date) {
-  return date.toISOString().split('T')[0]
+  return date.toISOString().split("T")[0];
 }
 
 function addDays(date, n) {
-  const d = new Date(date)
-  d.setDate(d.getDate() + n)
-  return d
+  const d = new Date(date);
+  d.setDate(d.getDate() + n);
+  return d;
 }
 
 // ─── Build week grid ──────────────────────────────────────────────────────────
 // Returns a 2D array [week][day 0–6], each cell is { date, ymd, count } or null
 const grid = computed(() => {
-  const map = Object.fromEntries(props.data.map((e) => [e.date, e.count]))
+  const map = Object.fromEntries(props.data.map((e) => [e.date, e.count]));
 
-  const today = new Date()
-  const startDate = addDays(today, -(props.totalWeeks * 7 - 1))
+  const today = new Date();
+  const startDate = addDays(today, -(props.totalWeeks * 7 - 1));
 
   // Snap back to Sunday for alignment
-  const snapStart = addDays(startDate, -startDate.getDay())
+  const snapStart = addDays(startDate, -startDate.getDay());
 
   // Calculate how many weeks we actually need to cover snapStart → today
-  const daySpan = Math.ceil((today - snapStart) / (1000 * 60 * 60 * 24)) + 1
-  const weeksNeeded = Math.ceil(daySpan / 7)
+  const daySpan = Math.ceil((today - snapStart) / (1000 * 60 * 60 * 24)) + 1;
+  const weeksNeeded = Math.ceil(daySpan / 7);
 
-  const result = []
-  let current = new Date(snapStart)
+  const result = [];
+  let current = new Date(snapStart);
 
   for (let w = 0; w < weeksNeeded; w++) {
-    const week = []
+    const week = [];
     for (let d = 0; d < 7; d++) {
-      const inRange = current >= startDate && current <= today
-      const ymd = toYMD(current)
-      week.push(inRange ? { date: formatDate(current), ymd, count: map[ymd] ?? 0 } : null)
-      current = addDays(current, 1)
+      const inRange = current >= startDate && current <= today;
+      const ymd = toYMD(current);
+      week.push(
+        inRange
+          ? { date: formatDate(current), ymd, count: map[ymd] ?? 0 }
+          : null,
+      );
+      current = addDays(current, 1);
     }
-    result.push(week)
+    result.push(week);
   }
 
-  return result
-})
+  return result;
+});
 // ─── Month labels ─────────────────────────────────────────────────────────────
 const monthLabels = computed(() => {
-  const labels = []
-  const seen = new Set()
+  const labels = [];
+  const seen = new Set();
   grid.value.forEach((week, wi) => {
     for (const day of week) {
-      if (!day) continue
-      const d = new Date(day.ymd)
-      const key = `${d.getFullYear()}-${d.getMonth()}`
+      if (!day) continue;
+      const d = new Date(day.ymd);
+      const key = `${d.getFullYear()}-${d.getMonth()}`;
       if (!seen.has(key)) {
-        seen.add(key)
-        labels.push({ name: d.toLocaleString('default', { month: 'short' }), col: wi + 1 })
+        seen.add(key);
+        labels.push({
+          name: d.toLocaleString("default", { month: "short" }),
+          col: wi + 1,
+        });
       }
-      break
+      break;
     }
-  })
-  return labels
-})
+  });
+  return labels;
+});
 
 // ─── Stats ────────────────────────────────────────────────────────────────────
-const totalContributions = computed(() => props.data.reduce((s, d) => s + d.count, 0))
-const maxCount = computed(() => Math.max(1, ...props.data.map((d) => d.count)))
+const totalContributions = computed(() =>
+  props.data.reduce((s, d) => s + d.count, 0),
+);
+const maxCount = computed(() => Math.max(1, ...props.data.map((d) => d.count)));
 
 // ─── Color mapping ────────────────────────────────────────────────────────────
 function getCellColor(count) {
-  if (count === 0) return props.colorScale[0]
-  const ratio = count / maxCount.value                          // 0–1
-  const idx = Math.ceil(ratio * (props.colorScale.length - 2)) // maps to 1–4
-  return props.colorScale[Math.min(idx, props.colorScale.length - 1)]
+  if (count === 0) return props.colorScale[0];
+  const ratio = count / maxCount.value; // 0–1
+  const idx = Math.ceil(ratio * (props.colorScale.length - 2)); // maps to 1–4
+  return props.colorScale[Math.min(idx, props.colorScale.length - 1)];
 }
-
+function getCellBorder(day) {
+  return day ? "1px solid rgba(255,255,255,0.15)" : "1px solid transparent";
+}
 // ─── Date formatting ──────────────────────────────────────────────────────────
 function formatDate(date) {
-  return date.toLocaleDateString('en-US', {
-    weekday: 'short', month: 'short', day: 'numeric', year: 'numeric',
-  })
+  return date.toLocaleDateString("en-US", {
+    weekday: "short",
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+  });
 }
 
 // ─── Tooltip ──────────────────────────────────────────────────────────────────
-const tooltip = reactive({ visible: false, x: 0, y: 0, count: 0, date: '' })
+const tooltip = reactive({ visible: false, x: 0, y: 0, count: 0, date: "" });
 
 function showTooltip(event, day) {
-  const rect = event.target.getBoundingClientRect()
-  tooltip.visible = true
-  tooltip.x = rect.left + rect.width / 2
-  tooltip.y = rect.top - 8 + window.scrollY
-  tooltip.count = day.count
-  tooltip.date = day.date
+  const rect = event.target.getBoundingClientRect();
+  tooltip.visible = true;
+  tooltip.x = rect.left + rect.width / 2;
+  tooltip.y = rect.top - 8 + window.scrollY;
+  tooltip.count = day.count;
+  tooltip.date = day.date;
 }
 
 function hideTooltip() {
-  tooltip.visible = false
+  tooltip.visible = false;
 }
 </script>
-
